@@ -1,0 +1,27 @@
+﻿@model YorkScjool.Models.Homework
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create Homework</h2>
+
+@using (Html.BeginForm("Create", "Homework", FormMethod.Post))
+{
+    <div>
+        <label>Title</label>
+        @Html.TextBoxFor(m => m.Title, new { required = "required" })
+    </div>
+
+    <div>
+        <label>Description</label>
+        @Html.TextAreaFor(m => m.Description, new { rows = 4 })
+    </div>
+
+    <div>
+        <label>Due Date</label>
+        @Html.TextBoxFor(m => m.DueDate, new { type = "date", required = "required" })
+    </div>
+
+    <button type="submit">Add Homework</button>
+}

@@ -1,0 +1,71 @@
+﻿@model YorkScjool.Models.Student
+
+@{
+    ViewBag.Title = "Student Account";
+}
+
+<div class="row gutters-sm">
+    <div class="col-md-4 mb-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex flex-column align-items-center text-center">
+                    @if (!string.IsNullOrEmpty(Model.ProfilePicture))
+                    {
+                        <img src="@Model.ProfilePicture" alt="Profile Picture" class="rounded-circle" width="150">
+                    }
+                    <div class="mt-3">
+                        <h4>@Model.FullName</h4>
+                        <p class="text-muted font-size-sm">@Model.Country</p>
+                        <p class="text-muted font-size-sm">@Model.Email</p>
+                        <p class="text-muted font-size-sm">@Model.Mobile</p>
+                        <p class="text-muted font-size-sm" @Model.Country</p>
+                        <div class="card mt-3">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <h6 class="mb-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 149, 255, 1);transform: ;msFilter:;"><path d="m20.665 3.717-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"></path></svg>
+                                        @Model.Telegram
+                                    </h6>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(230, 255, 4, 1);transform: ;msFilter:;"><path d="M12.166 3c.796 0 3.495.223 4.769 3.073.426.959.324 2.589.24 3.898l-.002.047c-.011.146-.018.278-.024.41a.62.62 0 0 0 .322.072c.241-.013.53-.096.831-.241a.81.81 0 0 1 .373-.084c.146 0 .289.023.409.072.361.12.59.385.59.674.013.361-.313.675-.975.939-.071.023-.169.061-.276.096-.363.109-.917.289-1.073.651-.072.181-.049.421.098.697l.012.013c.048.109 1.228 2.795 3.854 3.229a.401.401 0 0 1 .337.409c0 .06-.013.119-.036.181-.193.457-1.023.795-2.53 1.021-.047.073-.096.302-.132.459-.022.144-.06.289-.107.444-.061.218-.217.325-.446.325h-.024a2.45 2.45 0 0 1-.433-.059 4.799 4.799 0 0 0-1.024-.108c-.24 0-.48.012-.732.06-.483.084-.904.373-1.386.71-.687.481-1.469 1.036-2.649 1.036-.048 0-.096-.012-.146-.012h-.119c-1.181 0-1.951-.543-2.637-1.036-.481-.338-.89-.626-1.373-.711a5.507 5.507 0 0 0-.745-.06c-.435 0-.771.072-1.023.12-.17.035-.314.059-.435.059a.45.45 0 0 1-.47-.337c-.048-.154-.071-.313-.107-.456-.038-.146-.085-.396-.133-.458-1.543-.179-2.373-.517-2.565-.986a.473.473 0 0 1-.044-.181.398.398 0 0 1 .337-.409c2.625-.434 3.805-3.119 3.854-3.232l.013-.023c.145-.277.18-.52.096-.699-.156-.349-.711-.529-1.07-.65a1.759 1.759 0 0 1-.279-.096c-.89-.35-1.011-.748-.962-1.024.072-.384.541-.637.939-.637.117 0 .217.023.308.06.337.155.635.241.888.241a.742.742 0 0 0 .373-.085l-.041-.458c-.08-1.307-.182-2.935.247-3.889 1.236-2.836 3.929-3.054 4.724-3.054L12.117 3h.049z"></path></svg>  @Model.Snapchat</h6>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram mr-2 icon-inline text-danger"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>@Model.Instagram</h6>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook mr-2 icon-inline text-primary"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>@Model.Facebook</h6>
+                                </li>
+                                <div class="btn-stud2-pud">
+
+                                </div>
+                            </ul>
+                        </div>
+                        <button class="btn-stud load-content" href="#" data-url="@Url.Action("Settings", "Student")">
+                            Edit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+                $(document).ready(function () {
+                    $(".load-content").click(function (e) {
+                        e.preventDefault(); // Prevent full-page reload
+
+                        var url = $(this).data("url"); // Get URL from data-url attribute
+
+                        if (url) {
+                            $("#dynamic-content").load(url, function (response, status, xhr) {
+                                if (status === "error") {
+                                    alert("Error loading content: " + xhr.status + " " + xhr.statusText);
+                                }
+                            });
+                        }
+                    });
+                });
+        </script>
+    </div>
+</div>

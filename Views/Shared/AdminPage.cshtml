@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "AdminPage";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/css/admin.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="@Url.Action("Dashboard", "Admin")">Admin Dashboard</a>
+            <a href="@Url.Action("RegisterUser", "Admin")">Register User</a>
+            <a href="@Url.Action("Logout", "Auth")">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        @RenderBody()
+    </main>
+</body>
+</html>
+

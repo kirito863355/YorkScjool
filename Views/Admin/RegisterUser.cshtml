@@ -1,0 +1,139 @@
+﻿@model YorkScjool.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Register</h2>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        color: #fff;
+    }
+
+    .header, footer {
+        display: none !important;
+    }
+
+    .login-container {
+        width: 100%;
+        max-width: 400px;
+        padding: 20px;
+        border-radius: 10px;
+        color: #353b4e;
+    }
+
+    .login-form h2 {
+        font-family: "Raleway", sans-serif;
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 40px;
+    }
+
+    .input-group {
+        margin-bottom: 15px;
+    }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 15px;
+            font-size: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            font-family: "Raleway", sans-serif;
+        }
+
+            .input-group input:focus, .input-group select:focus {
+                border-color: #ef6603;
+                outline: none;
+            }
+
+    .login-btn {
+        width: 100%;
+        padding: 15px;
+        background-color: #ef6603;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        font-size: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        font-family: "Raleway", sans-serif;
+        font-weight: 600;
+    }
+
+        .login-btn:hover {
+            background-color: #e05502;
+        }
+</style>
+
+<div class="login-container">
+    <div class="login-form">
+        <h2>York School</h2>
+        @using (Html.BeginForm("RegisterUser", "Admin", FormMethod.Post, new { @id = "registerForm", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="input-group">
+                @Html.LabelFor(m => m.Email)
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", required = "required" })
+            </div>
+
+            <div class="input-group">
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", required = "required" })
+            </div>
+
+            <div class="input-group">
+                @Html.LabelFor(m => m.ConfirmPassword)
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", required = "required" })
+            </div>
+
+            <div class="input-group">
+                <label for="Role">Select Role</label>
+                @Html.DropDownList("Role", new SelectList(new[]
+                {
+                    new { Value = "Student", Text = "Student" },
+                    new { Value = "Teacher", Text = "Teacher" },
+                    new { Value = "Admin", Text = "Admin" }
+                }, "Value", "Text"), "Select a Role", new { @class = "form-control", required = "required" })
+            </div>
+
+            <button type="submit" class="login-btn">Register</button>
+        }
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#registerForm").submit(function (event) {
+            event.preventDefault();
+
+            $.ajax({
+                url: $(this).attr("action"),
+                type: "POST",
+                data: $(this).serialize(),
+                success: function (response) {
+                    alert("User registered successfully!");
+                    window.location.href = "/Admin/ManageUsers";
+                },
+                error: function (xhr) {
+                    alert("Registration failed! " + xhr.responseText);
+                }
+            });
+        });
+    });
+</script>

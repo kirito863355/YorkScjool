@@ -1,0 +1,205 @@
+﻿@model YorkScjool.Models.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+}
+
+<style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        .header{
+            display: none !important;
+        }
+
+    footer{
+        display: none;
+    }
+    /* Login Container */
+    .login-container {
+        width: 100%;
+        max-width: 400px;
+        padding: 20px;
+        border-radius: 10px;
+        color: #353b4e;
+    }
+
+/* Form */
+.login-form h2 {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+    .input-group p {
+        color: grey;
+        font-size: 17px;
+        font-family: "Raleway", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: weight;
+        font-style: normal;
+        text-align: center;
+        text-align: center;
+    }
+
+.hr1 {
+    color: rgb(165, 165, 165);
+}
+
+.recovery {
+    font-size: 40px;
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    text-align: center;
+    text-align: center;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+    .input-group input {
+        padding: 15px;
+        font-size: 20px;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        font-family: "Raleway", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: weight;
+        font-style: normal;
+        width: 100%;
+    }
+
+    .input-group input:focus {
+        border-color: #ef6603;
+        outline: none;
+    }
+
+/* Login Button */
+.login-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #ef6603 !important;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
+    .login-btn:hover {
+        background-color: #ef6603;
+    }
+
+/* Signup Text */
+.signup-text {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 17px;
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    color: grey;
+}
+
+    .signup-text a {
+        color: grey;
+        text-decoration: none;
+    }
+
+        .signup-text a:hover {
+            text-decoration: none;
+            color: #ef6603;
+        }
+
+    /* Responsive Design */
+    @*@media screen and (max-width: 768px) {
+        .login-container {
+            padding: 15px;
+        }*@
+
+
+
+</style>
+
+<div class="login-container">
+    <div class="login-form">
+        <h2>York School</h2>
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+
+                <div class="input-group" style="width: 100%;">
+                    @Html.LabelFor(m => m.Email)
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                </div>
+
+                <div class="input-group">
+                    @Html.LabelFor(m => m.Password)
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                </div>
+
+                @*<div class="input-group">
+                    @Html.CheckBoxFor(m => m.RememberMe)
+                    @Html.LabelFor(m => m.RememberMe)
+                </div>*@
+
+                <button type="submit" class="login-btn btn btn-primary">Log in</button>
+           }
+    </div>
+</div>
+
+
+
+@*@section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@
+
+@*@model YorkScjool.Models.LoginViewModel
+    @{
+        ViewBag.Title = "Login";
+    }
+
+    <h2>Login</h2>
+
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email)
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password)
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        </div>
+
+        <button type="submit" class="btn btn-success">Login</button>
+    }*@

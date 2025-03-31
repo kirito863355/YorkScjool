@@ -1,0 +1,21 @@
+﻿@model IEnumerable<YorkScjool.Models.Lesson>
+
+<h2>Manage Lessons</h2>
+
+<table class="table">
+    <tr>
+        <th>Lesson Name</th>
+        <th>Description</th>
+    </tr>
+    @foreach (var lesson in Model)
+    {
+        <tr>
+            <td>@lesson.Title</td>
+            <td>@lesson.Description</td>
+        </tr>
+    }        
+</table>
+
+<a href="@Url.Action("AddLesson", "Admin")" class="btn btn-success">Add Lesson</a>
+<a href="@Url.Action("DeleteLesson", "Admin")" class="btn btn-success">Edit Lesson</a>
+<a href="@Url.Action("EditLesson", "Admin")" class="btn btn-success">Delete Lesson</a>

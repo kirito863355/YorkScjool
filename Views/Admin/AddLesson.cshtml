@@ -1,0 +1,54 @@
+﻿@model YorkScjool.Models.Lesson
+
+@{
+    ViewBag.Title = "Add Lesson";
+}
+
+<h2>Add Lesson</h2>
+
+@using (Html.BeginForm("AddLesson", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div>
+        <label>Lesson Title:</label>
+        @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+    </div>
+
+    <div>
+        <label>Lesson Content:</label>
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+    </div>
+
+    <div>
+        <label>Lesson Image:</label>
+        @Html.TextAreaFor(m => m.ImagePath, new { @class = "form-control" })
+    </div>
+
+    <div>
+        <label>Select Student:</label>
+        @Html.DropDownList("studentId", ViewBag.Students as SelectList, "-- Select Student --", new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Lesson</button>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script>
+    document.getElementById("lessonForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        fetch("/Admin/AddLesson", {
+            method: "POST",
+            body: new FormData(this)
+        }).then(response => {
+            if (response.redirected) {
+                window.location.href = response.url;
+            } else {
+                alert("Error saving lesson");
+            }
+        }).catch(error => console.error("Error:", error));
+    });
+</script>

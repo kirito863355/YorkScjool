@@ -1,0 +1,20 @@
+﻿@model YorkScjool.Models.Lesson
+
+<h2>Edit Lesson</h2>
+
+@using (Html.BeginForm())
+{
+
+    <label>Student</label>
+    @Html.DropDownListFor(m => m.Student_Id, ViewBag.Students as SelectList, "Select a student", new { @required = "required" })
+
+    @Html.HiddenFor(m => m.Id)
+
+    <label>Title</label>
+    @Html.TextBoxFor(m => m.Title, new { required = "required" })
+
+    <label>Description</label>
+    @Html.TextAreaFor(m => m.Description)
+
+    <button type="submit">Update</button>
+}

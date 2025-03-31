@@ -1,0 +1,1353 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+.flag-brikish {
+  height: 20rem;
+}
+
+.smicon {
+  margin-top: 50%;
+  height: 6rem;
+}
+
+.crdss {
+  font-size: 20px;
+}
+
+.imsm {
+  height: 4rem;
+}
+
+.section-listic {
+  font-family: var(--default-font);
+  font-size: 12pt;
+  color: var(--contrast-color);
+  text-align: center;
+}
+
+.section-icons {
+    min-height: 100vh;
+/*    background-image: url(~/Content/landing/images/Vector\ 3.png);*/
+    background-image: url('@Url.Content("~/Content/landing/images/Vector\ 3.png")'); 
+    background-size: cover;
+    background-position: right;
+    overflow: hidden;
+}
+
+.wrapper {
+  box-sizing: border-box;
+  background-color: var(--contrast-color);
+  height: 100vh;
+  width: max(10%, 600px);
+  padding: 0;
+  border-radius: 0 20px 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+form {
+  width: min(400px, 100%);
+  margin-top: 20px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+form > div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+form label {
+  flex-shrink: 0;
+  height: 50px;
+  width: 50px;
+  background-color: var(--accent-color);
+  fill: var(--base-color);
+  color: var(--base-color);
+  border-radius: 10px 0 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+form input {
+  box-sizing: border-box;
+  flex-grow: 1;
+  min-width: 0;
+  height: 50px;
+  padding: 1em;
+  font: inherit;
+  border-radius: 0 10px 10px 0;
+  border: 2px solid var(--input-color);
+  border-left: none;
+  background-color: var(--input-color);
+  transition: 150ms ease;
+}
+form input:hover {
+  border-color: var(--accent-color);
+}
+form input:focus {
+  outline: none;
+  border-color: var(--text-color);
+}
+div:has(input:focus) > label {
+  background-color: var(--text-color);
+}
+form input::placeholder {
+  color: var(--text-color);
+}
+form button {
+  margin-top: 10px;
+  border: none;
+  border-radius: 1000px;
+  padding: 0.85em 4em;
+  background-color: var(--accent-color);
+  color: var(--base-color);
+  font: inherit;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 150ms ease;
+}
+form button:hover {
+  background-color: var(--text-color);
+}
+form button:focus {
+  outline: none;
+  background-color: var(--text-color);
+}
+a {
+  text-decoration: none;
+  color: var(--accent-color);
+}
+a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 1100px) {
+  .wrapper {
+    width: min(600px, 100%);
+    border-radius: 0;
+  }
+}
+form div.incorrect label {
+  background-color: #f06272;
+}
+form div.incorrect input {
+  border-color: #f06272;
+}
+#error-message {
+  color: #f06272;
+}
+
+.section-icons {
+  display: grid;
+  place-items: center;
+  min-height: 20vh; /* Убедимся, что секция занимает всю высоту экрана */
+  background-size: contain;
+  background-position: right;
+  background-repeat: no-repeat; /* Чтобы фон не повторялся */
+  overflow: hidden;
+  gap: 10px;
+}
+
+.log-btn-platform{
+  background-color: #dd621b;
+  padding: 5px 20px;
+  color: #ffffff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  border-radius: 16px;
+  font-weight: 400;
+ 
+}
+
+.log-btn-platform:hover{
+  background-color: #dd621b;
+  padding: 5px 20px;
+  border: 2px solid #dd621b;
+  background-color: #fff;
+ 
+}
+
+
+.lor-orange-font {
+    color: #ff5e2c;
+}
+.socials-container {
+  display: flex;
+  gap: 10px;
+}
+.socials-container a {
+  background-color: white;
+  border-radius: 50%;
+  height: 65px;
+  width: 65px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+}
+.socials-container a svg {
+  height: 32px;
+}
+.socials-container a::before {
+  content: attr(data-social);
+  position: absolute;
+  background-color: var(--accent-color);
+  color: white;
+  text-decoration: none;
+  padding: 0.5em 1em;
+  border-radius: 100px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+  transform: translateY(-30px) rotate(25deg);
+  opacity: 0;
+  transition: 200ms cubic-bezier(0.42, 0, 0.44, 1.68);
+}
+.socials-container a:hover {
+  background-color: var(--accent-color);
+  fill: white;
+}
+.socials-container a::after {
+  content: "";
+  position: absolute;
+  height: 0;
+  width: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 10px solid var(--accent-color);
+  transform: translateY(0) rotate(25deg);
+  opacity: 0;
+  transition: 200ms cubic-bezier(0.42, 0, 0.44, 1.68);
+}
+.socials-container a:hover::before {
+  transform: translateY(-65px) rotate(0);
+  opacity: 1;
+}
+.socials-container a:hover::after {
+  transform: translateY(-42px) rotate(0);
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .socials-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+  .socials-container a {
+    height: 48px;
+    width: 48px;
+    padding: 0.5em;
+  }
+  .socials-container a svg {
+    height: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-icons {
+    padding: 20px;
+  }
+  .socials-container {
+    gap: 10px;
+  }
+  .socials-container a {
+    height: 50px;
+    width: 50px;
+    padding: 0.4em;
+  }
+  .socials-container a svg {
+    height: 30px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .section-icons {
+    background-position: center ; /* Центрируем фон относительно правой стороны */
+    background-size: cover; /* Уменьшаем размер, чтобы весь фон был видим */
+    
+  }
+
+  .socials-container {
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1200px) {
+  .section-icons {
+    background-position: center ; /* Центрируем фон относительно правой стороны */
+    background-size: cover; /* Уменьшаем размер, чтобы весь фон был видим */
+    
+  }
+
+  .socials-container {
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-icons {
+    background-position: center; /* Центрируем фон по центру */
+    background-size: cover; /* Оставляем фон покрывающим всю секцию */
+  }
+}
+
+@media (max-width: 480px) {
+  .section-icons {
+    background-position: top center; /* Сдвигаем фон к верхней части */
+    background-size: cover; /* Фон подгоняется под размер экрана */
+    min-height: 20vh; /* Уменьшаем высоту секции для маленьких экранов */
+  }
+}
+
+.form-sec {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('@Url.Content("~/Content/landing/images/Монтажная\ область\ 1background.jpg")');
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 10%;
+}
+
+.form-container {
+  background: #fff;
+  border-radius: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 40px 30px;
+  max-width: 500px;
+  width: 100%;
+  margin-left: 0%;
+  border: 3px solid orangered;
+}
+
+.form-container h2 {
+  margin: 0 0 30px;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #000;
+}
+
+.form-container p {
+  margin: 10px 0 20px;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.form-container label {
+  font-size: 0.9em;
+  color: #555;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.form-container input,
+.form-container select,
+.form-container button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 2px solid orangered;
+  border-radius: 20px;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+.form-container input:focus,
+.form-container select:focus {
+  border-color: orangered;
+  outline: none;
+}
+
+.form-container button {
+  background: orangered;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.form-container button:hover {
+  background: rgb(189, 51, 1);
+  border: 2px solid rgb(189, 51, 1);
+}
+.image-all {
+  width: 700px;
+  height: 500px;
+}
+
+.image-container {
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  z-index: 1;
+}
+
+.image-container img {
+  border-radius: 50%;
+}
+
+.tel-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tel-input select {
+  width: 30%;
+}
+
+.tel-input input {
+  width: 70%;
+}
+
+@media (max-width: 320px) {
+    .form-sec {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-image: url('@Url.Content("~/Content/landing/images/Монтажная\ область\ 1background.jpg")'); 
+        background-size: cover;
+        height: 600vh;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        gap: 5%;
+    }
+
+  .form-container {
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 35px 25px;
+    max-width: 300px;
+    width: 100%;
+    margin-left: 10%;
+    border: 3px solid orangered;
+  }
+
+  .form-container label {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 2px;
+    display: block;
+  }
+
+  .form-container input,
+  .form-container select,
+  .form-container button {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 1em;
+    box-sizing: border-box;
+  }
+
+  .tel-input select {
+    width: 30%;
+  }
+
+  .tel-input input {
+    width: 70%;
+  }
+
+  .image-all {
+    width: auto;
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+    .form-sec {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-image: url('@Url.Content("~/Content/landing/images/Монтажная\ область\ 1background.jpg")');
+        background-size: cover;
+        height: 200vh;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        gap: 5%;
+    }
+
+  .form-container {
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 35px 25px;
+    max-width: 300px;
+    width: 100%;
+    margin-left: 10%;
+    border: 3px solid orangered;
+  }
+
+  .form-container label {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 2px;
+    display: block;
+  }
+
+  .form-container input,
+  .form-container select,
+  .form-container button {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 1em;
+    box-sizing: border-box;
+  }
+
+  .tel-input select {
+    width: 30%;
+  }
+
+  .tel-input input {
+    width: 70%;
+  }
+
+  .image-all {
+    width: auto;
+    height: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+    .form-sec {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-image: url('@Url.Content("~/Content/landing/images/Монтажная\ область\ 1background.jpg")');
+        background-size: cover;
+        height: 350vh;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        gap: 5%;
+    }
+
+  .form-container {
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 35px 25px;
+    max-width: 300px;
+    width: 100%;
+    margin-left: 10%;
+    border: 3px solid orangered;
+  }
+
+  .form-container label {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 2px;
+    display: block;
+  }
+
+  .form-container input,
+  .form-container select,
+  .form-container button {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 8px;
+    border: 2px solid orangered;
+    border-radius: 20px;
+    font-size: 1em;
+    box-sizing: border-box;
+  }
+
+  .tel-input select {
+    width: 30%;
+  }
+
+  .tel-input input {
+    width: 70%;
+  }
+
+  .image-all {
+    width: auto;
+    height: 200px;
+  }
+}
+
+@media (max-width: 992px) {
+    .form-sec {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-image: url('@Url.Content("~/Content/landing/images/Монтажная\ область\ 1background.jpg")');
+        background-size: cover;
+        height: 200vh;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        gap: 5%;
+    }
+
+  .form-container {
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 35px 25px;
+    max-width: 300px;
+    width: 100%;
+    margin-left: 10%;
+    border: 3px solid orangered;
+  }
+
+  .form-container label {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 2px;
+    display: block;
+  }
+
+  .form-container input,
+  .form-container select,
+  .form-container button {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 8px;
+    border: 2px solid orangered;
+    border-radius: 20px;
+    font-size: 1em;
+    box-sizing: border-box;
+  }
+
+  .tel-input select {
+    width: 30%;
+  }
+
+  .tel-input input {
+    width: 70%;
+  }
+
+  .image-all {
+    width: auto;
+    height: 200px;
+  }
+}
+
+@media (max-width: 1025px) {
+    .form-sec {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-image: url('@Url.Content("~/Content/landing/images/Монтажная\ область\ 1background.jpg")');
+        background-size: cover;
+        height: 200vh;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        gap: 5%;
+    }
+
+  .form-container {
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 35px 25px;
+    max-width: 400px;
+    width: 100%;
+    margin-left: 10%;
+    border: 3px solid orangered;
+  }
+
+  .form-container label {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 2px;
+    display: block;
+  }
+
+  .form-container input,
+  .form-container select,
+  .form-container button {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 8px;
+    border: 2px solid orangered;
+    border-radius: 20px;
+    font-size: 1em;
+    box-sizing: border-box;
+  }
+
+  .tel-input select {
+    width: 30%;
+  }
+
+  .tel-input input {
+    width: 70%;
+  }
+}
+
+@media (max-width: 1280px) {
+    .form-sec {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-image: url('@Url.Content("~/Content/landing/images/Монтажная\ область\ 1background.jpg")');
+        background-size: cover;
+        height: 140vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        gap: 5%;
+    }
+
+  .form-container {
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 35px 25px;
+    max-width: 300px;
+    width: 100%;
+    margin-left: 5%;
+    border: 2px solid orangered;
+  }
+
+  .form-container label {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 2px;
+    display: block;
+  }
+
+  .form-container input,
+  .form-container select,
+  .form-container button {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 8px;
+    border: 2px solid orangered;
+    border-radius: 20px;
+    font-size: 1em;
+    box-sizing: border-box;
+  }
+
+  .tel-input select {
+    width: 30%;
+  }
+
+  .tel-input input {
+    width: 70%;
+  }
+}
+
+@media (min-width: 1360px) {
+    .form-sec {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-image: url('@Url.Content("~/Content/landing/images/Монтажная\ область\ 1background.jpg")'); background-size: cover;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        gap: 5%;
+    }
+
+  .form-container {
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px 30px;
+    max-width: 400px;
+    width: 100%;
+    margin-left: 0%;
+    border: 3px solid orangered;
+  }
+
+  .form-container label {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .form-container input,
+  .form-container select,
+  .form-container button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 2px solid orangered;
+    border-radius: 20px;
+    font-size: 1em;
+    box-sizing: border-box;
+  }
+
+  .tel-input select {
+    width: 30%;
+  }
+
+  .tel-input input {
+    width: 70%;
+  }
+}
+
+@media (min-width: 1680px) {
+    .form-sec {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-image: url('@Url.Content("~/Content/landing/images/Монтажная\ область\ 1background.jpg")');
+        background-size: cover;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        gap: 10%;
+    }
+
+  .form-container {
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px 30px;
+    max-width: 500px;
+    width: 100%;
+    margin-left: 0%;
+    border: 3px solid orangered;
+  }
+
+  .form-container h2 {
+    margin: 0 0 30px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #000;
+  }
+
+  .form-container p {
+    margin: 10px 0 20px;
+    font-size: 0.9em;
+    color: #555;
+  }
+
+  .form-container label {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .form-container input,
+  .form-container select,
+  .form-container button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid orangered;
+    border-radius: 20px;
+    font-size: 1em;
+    box-sizing: border-box;
+  }
+
+  .form-container input:focus,
+  .form-container select:focus {
+    border-color: orangered;
+    outline: none;
+  }
+
+  .form-container button {
+    background: orangered;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .form-container button:hover {
+    background: rgb(189, 51, 1);
+    border: 2px solid rgb(189, 51, 1);
+  }
+  .image-all {
+    width: 700px;
+    height: 500px;
+  }
+
+  .image-container {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    z-index: 1;
+  }
+
+  .image-container img {
+    border-radius: 50%;
+  }
+
+  .tel-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .tel-input select {
+    width: 30%;
+  }
+
+  .tel-input input {
+    width: 70%;
+  }
+}
+
+.wellcum .qiqi,
+p {
+  color: #000;
+}
+
+.wellcum .qiqi span {
+  color: transparent;
+}
+
+.wellcum .qiqi span {
+  position: relative;
+}
+
+.wellcum .qiqi span::before {
+  content: "York School";
+  color: #ff7f50;
+  animation: words 20s infinite;
+}
+
+.wellcum .qiqi span::after {
+  content: "";
+  position: absolute;
+  width: calc(100% + 8px);
+  height: 100%;
+  background-color: #fff;
+  border-left: 2px solid #ff7f50;
+  right: -8px;
+  animation: cursor 0.8s infinite, typing 20s steps(14) infinite;
+}
+
+@keyframes cursor {
+  to {
+    border-left: 2px solid white;
+  }
+}
+
+@keyframes words {
+  0%,
+  20% {
+    content: "York School";
+  }
+  21%,
+  40% {
+    content: "York School";
+  }
+  41%,
+  60% {
+    content: "York School";
+  }
+  61%,
+  80% {
+    content: "York School";
+  }
+  81%,
+  100% {
+    content: "York School";
+  }
+}
+
+@keyframes typing {
+  10%,
+  15%,
+  30%,
+  35%,
+  50%,
+  55%,
+  70%,
+  75%,
+  90%,
+  95% {
+    width: 0;
+  }
+  5%,
+  20%,
+  25%,
+  40%,
+  45%,
+  60%,
+  65%,
+  80%,
+  85% {
+    width: calc(100% + 15px);
+  }
+}
+
+.dropdown-quest {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 10vh;
+  background-color: #ffffff;
+  gap: 20px;
+}
+
+.card-one {
+  width: 60%;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: rgb(226, 93, 45) 3px solid;
+  text-align: center;
+}
+
+.card-one p {
+
+color: #333;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+font-weight: 600;
+}
+
+.card-one:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.card-header1 {
+  background-color: rgb(226, 93, 45);
+  color: rgb(255, 255, 255);
+  padding: 15px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 18px;
+  font-size: 15px;
+  font-family: "Noto Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings: "wdth" 400;
+}
+
+.card-content {
+  max-height: 0;
+  overflow: hidden;
+  background-color: #ffffff;
+  color: #333;
+  padding: 0 15px;
+  font-size: 16px;
+  line-height: 0;
+  transition: 0.4s ease;
+}
+
+.card-content.show {
+  max-height: 150%; /* Adjust based on content length */
+  padding: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card {
+    width: 90%;
+  }
+
+  .card-header {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  .card-content {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 100%;
+    margin: 0 10px;
+  }
+
+  .card-header {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .card-content {
+    font-size: 12px;
+    line-height: 1.3;
+  }
+}
+
+.footer h3 {
+  font-size: 20px;
+  font-weight: 700;
+  position: relative;
+  padding: 0;
+  margin: 0 0 15px 0;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 10px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+}
+
+.footer-containere {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-columne {
+  flex: 1;
+  min-width: 200px;
+  margin: 10px;
+  text-align: left;
+}
+
+.footer-columne1 {
+  flex: 1;
+  min-width: 350px;
+  margin: 10px;
+  text-align: left;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 15px;
+
+}
+
+
+
+.footer-columne1 h3 {
+  border-bottom: orangered 2px solid;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.footer-columne h3 {
+  border-bottom: orangered 2px solid;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.footer-columne ul {
+  list-style: none;
+  padding: 3px;
+}
+
+.footer-columne ul li {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.btn-tel {
+  font-size: 15px;
+  font-family: "Noto Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  font-variation-settings: "wdth" 400;
+  background-color: #ff711e;
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+
+.btn-tel:hover {
+  font-size: 15px;
+  font-family: "Noto Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  font-variation-settings: "wdth" 400;
+  background-color: #dd621b;
+  border-radius: 10px;
+  padding: 10px 20px;
+  color: #ffffff;
+}
+
+.tell {
+  font-size: 20px;
+  font-family: "Kantumruy Pro", serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
+
+.footer-columne ul li a {
+  font-family: "Raleway", serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.footer-columne ul li a:hover {
+  color: #ff711e;
+}
+
+.footer-columne ul li .btn-tel:hover {
+  color: #fcfcfc;
+}
+
+@media (max-width: 768px) {
+  .footer-columne {
+    flex: 1 1 100%;
+    margin: 5px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  footer {
+    text-align: center;
+  }
+
+  .footer-containere {
+    flex-direction: column;
+  }
+}
+
+.socials-containera {
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  gap: 10px;
+}
+.socials-containera a {
+  background-color: white;
+
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+}
+.socials-containera a svg {
+  height: 30px;
+}
+.socials-containera a::before {
+  content: attr(data-social);
+  position: absolute;
+  background-color: var(--accent-color);
+  color: white;
+  text-decoration: none;
+  padding: 0.5em 1em;
+  border-radius: 100px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+  transform: translateY(-30px) rotate(25deg);
+  opacity: 0;
+  transition: 200ms cubic-bezier(0.42, 0, 0.44, 1.68);
+}
+.socials-containera a:hover {
+  background-color: var(--accent-color);
+  fill: white;
+}
+.socials-containera a::after {
+  content: "";
+  position: absolute;
+  height: 0;
+  width: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 10px solid var(--accent-color);
+  transform: translateY(0) rotate(25deg);
+  opacity: 0;
+  transition: 200ms cubic-bezier(0.42, 0, 0.44, 1.68);
+}
+.socials-containera a:hover::before {
+  transform: translateY(-65px) rotate(0);
+  opacity: 1;
+}
+.socials-containera a:hover::after {
+  transform: translateY(-42px) rotate(0);
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .socials-containera {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+  .socials-containera a {
+    height: 48px;
+    width: 48px;
+    padding: 0.5em;
+  }
+  .socials-containera a svg {
+    height: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-icons {
+    padding: 20px;
+  }
+  .socials-containera {
+    gap: 10px;
+  }
+  .socials-containera a {
+    height: 40px;
+    width: 40px;
+    padding: 0.4em;
+  }
+  .socials-containera a svg {
+    height: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .section-icons {
+    background-position: center right; /* Центрируем фон относительно правой стороны */
+    background-size: cover; /* Уменьшаем размер, чтобы весь фон был видим */
+  }
+}
+
+@media (max-width: 768px) {
+  .section-icons {
+    background-position: center; /* Центрируем фон по центру */
+    background-size: cover; /* Оставляем фон покрывающим всю секцию */
+  }
+}
+
+@media (max-width: 480px) {
+  .section-icons {
+    background-position: top center; /* Сдвигаем фон к верхней части */
+    background-size: cover; /* Фон подгоняется под размер экрана */
+    min-height: 20vh; /* Уменьшаем высоту секции для маленьких экранов */
+  }
+}

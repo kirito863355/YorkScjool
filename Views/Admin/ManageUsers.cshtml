@@ -1,0 +1,30 @@
+@model IEnumerable<YorkScjool.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "Manage Users";
+}
+
+<h2>Manage Users</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.UserName</td>
+                <td>@user.Email</td>
+                <td>
+                    <a href="@Url.Action("EditUser", "Admin", new { id = user.Id })" class="btn btn-warning">Edit</a>
+                    <a href="@Url.Action("DeleteUser", "Admin", new { id = user.Id })" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

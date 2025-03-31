@@ -1,0 +1,25 @@
+@model YorkScjool.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "Delete Student";
+}
+
+<h2 class="text-center text-danger mb-4">Delete Student</h2>
+
+<div class="container">
+    <p>Are you sure you want to delete the following student?</p>
+
+    <ul class="list-group">
+        <li class="list-group-item"><strong>Name:</strong> @Model.UserName</li>
+        <li class="list-group-item"><strong>Email:</strong> @Model.Email</li>
+    </ul>
+
+    @using (Html.BeginForm("ConfirmDeleteStudent", "Admin", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.Id)
+
+        <button type="submit" class="btn btn-danger mt-3">Delete</button>
+        <a href="@Url.Action("ManageStudents", "Admin")" class="btn btn-secondary mt-3">Cancel</a>
+    }
+</div>

@@ -1,0 +1,293 @@
+﻿@model List<YorkScjool.Models.Lesson>
+
+<h2>My Lessons</h2>
+
+@if (Model != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var lesson in Model)
+            {
+                <tr>
+                    <td>@lesson.Title</td>
+                    <td>@lesson.Description</td>
+                    <td>@lesson.DateAdded</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+else
+{
+    < p > No lessons assigned yet.</ p >
+}
+<div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-title"><span style="color:rgb(52, 63, 112);">1.3</span>LESON</p>
+                <p class="font-weight-500">LESON</p>
+                <img style="width: 100%;" src="https://gratisography.com/wp-content/uploads/2025/01/gratisography-dog-vacation-800x525.jpg" alt="Fairy Tale Illustration"><br><br>
+                <p class="font-weight-500">fdsfkdsfk</p>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li>📍 Mavka</li>
+                    <li>📍 Prince Charming</li>
+                    <li>📍 Snow Queen</li>
+                    <li>📍 Mermaid</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-title"><span style="color:rgb(52, 63, 112);">1.1</span> Answer the questions</p>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li>1. Snow Queen</li>
+                        <li>2. Mermaid</li>
+                        <li>3. Lisovyi</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+</div>
+<div class="row">
+        <div class="col-md-6 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-title"><span style="color:rgb(52, 63, 112);">1.2</span> Watch the video</p>
+                    <p class="font-weight-500">The total number of sessions within the date range. It is the period time a user is actively engaged with your website, page or app, etc</p>
+                    <video controls style="width: 100%;" src="https://youtu.be/Y4kfe8R1Iqs?list=PLmB2A7HxLenzDSK8ZAAPBbaqNeMHN1PXO"></video>
+                    <br><br>
+                    <p class="font-weight-500">You are more beautiful than you think</p>
+                    <hr style="color: gray; height: 2px;">
+                    <p class="card-title"><span style="color:rgb(52, 63, 112);">1.3</span> Write your answers below</p>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li>What do you think about this video?</li>
+                        <li>Would you like to take part in such experiment?</li>
+                        <li>Why or why not</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-title"><span style="color:rgb(52, 63, 112);">1.2</span> Watch the video</p>
+                        <p class="font-weight-500">The total number of sessions within the date range. It is the period time a user is actively engaged with your website, page or app, etc</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 style="margin-bottom: 10px;">Hair under a man's nose</h3>
+                        <div id="letters">
+                            <span style="
+                        display: inline-block;
+                        padding: 10px;
+                        margin: 5px;
+                        border: 2px solid green;
+                        border-radius: 5px;
+                        font-size: 18px;
+                        font-weight: bold;
+                        cursor: pointer;
+                        background: white;
+                        " onclick="selectLetter(this)">M</span>
+                            <span style="
+                      display: inline-block;
+                      padding: 10px;
+                      margin: 5px;
+                      border: 2px solid green;
+                      border-radius: 5px;
+                      font-size: 18px;
+                      font-weight: bold;
+                      cursor: pointer;
+                      background: white;
+                      " onclick="selectLetter(this)">u</span>
+                            <span style="
+                      display: inline-block;
+                      padding: 10px;
+                      margin: 5px;
+                      border: 2px solid green;
+                      border-radius: 5px;
+                      font-size: 18px;
+                      font-weight: bold;
+                      cursor: pointer;
+                      background: white;
+                      " onclick="selectLetter(this)">s</span>
+                            <span style="
+                      display: inline-block;
+                      padding: 10px;
+                      margin: 5px;
+                      border: 2px solid green;
+                      border-radius: 5px;
+                      font-size: 18px;
+                      font-weight: bold;
+                      cursor: pointer;
+                      background: white;
+                      " onclick="selectLetter(this)">t</span>
+                            <span style="
+                      display: inline-block;
+                      padding: 10px;
+                      margin: 5px;
+                      border: 2px solid green;
+                      border-radius: 5px;
+                      font-size: 18px;
+                      font-weight: bold;
+                      cursor: pointer;
+                      background: white;
+                      " onclick="selectLetter(this)">a</span>
+                            <span style="
+                      display: inline-block;
+                      padding: 10px;
+                      margin: 5px;
+                      border: 2px solid green;
+                      border-radius: 5px;
+                      font-size: 18px;
+                      font-weight: bold;
+                      cursor: pointer;
+                      background: white;
+                      " onclick="selectLetter(this)">c</span>
+                            <span style="
+                      display: inline-block;
+                      padding: 10px;
+                      margin: 5px;
+                      border: 2px solid green;
+                      border-radius: 5px;
+                      font-size: 18px;
+                      font-weight: bold;
+                      cursor: pointer;
+                      background: white;
+                      " onclick="selectLetter(this)">h</span>
+                            <span style="
+                      display: inline-block;
+                      padding: 10px;
+                      margin: 5px;
+                      border: 2px solid green;
+                      border-radius: 5px;
+                      font-size: 18px;
+                      font-weight: bold;
+                      cursor: pointer;
+                      background: white;
+                      " onclick="selectLetter(this)">e</span>
+                        </div>
+                        <div style="
+                    display: inline-block;
+                    padding: 10px;
+                    margin: 5px;
+                    border: 2px solid gray;
+                    border-radius: 5px;
+                    font-size: 18px;
+                    min-width: 30px;
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 15px;
+                    min-height: 40px;
+                  " id="answer"></div>
+                        <button style="
+                    margin-top: 15px;
+                    padding: 10px 15px;
+                    border: none;
+                    background: green;
+                    color: white;
+                    font-size: 16px;
+                    cursor: pointer;
+                    border-radius: 5px;
+                  " onclick="checkWord()">
+                            Check
+                        </button>
+                        <button style="
+                  margin-top: 15px;
+                  padding: 10px 15px;
+                  border: none;
+                  background: green;
+                  color: white;
+                  font-size: 16px;
+                  cursor: pointer;
+                  border-radius: 5px;
+                " onclick="resetGame()">
+                            Reset
+                        </button>
+                        <p style="margin-top: 10px; font-weight: bold;" id="result"></p>
+                    </div>
+                    <script>
+                        let selectedWord = "";
+                        const correctWord = "Mustache";
+
+                        let attempts = 3;
+
+                        function checkAnswer() {
+                            let userInput = document.getElementById("inputBox").value.trim().toLowerCase();
+                            let correctAnswer = "mustache"; // Change this as needed
+
+                            if (userInput === correctAnswer) {
+                                document.getElementById("message").innerText = "✅ Correct! Well done!";
+                                document.getElementById("checkBtn").disabled = true; // Disable check button
+                            } else {
+                                attempts--;
+                                document.getElementById("attemptsLeft").innerText = `Attempts left: ${attempts}`;
+
+                                if (attempts === 0) {
+                                    document.getElementById("message").innerText = "❌ Game Over! The correct word was 'mustache'.";
+                                    document.getElementById("checkBtn").disabled = true;
+                                } else {
+                                    document.getElementById("message").innerText = "❌ Incorrect! Try again.";
+                                }
+                            }
+                        }
+
+                        function checkWord() {
+                            if (selectedWord === correctWord) {
+                                document.getElementById("result").textContent = "✅ Correct!";
+                                document.getElementById("result").style.color = "green";
+                            } else {
+                                attempts--;
+                                document.getElementById("result").textContent = "❌ Try Again!";
+                                document.getElementById("result").style.color = "red";
+                            }
+                        }
+
+                        function selectLetter(letterElement) {
+                            // Add the letter to the answer box
+                            const letter = letterElement.textContent;
+                            const answerBox = document.getElementById("answer");
+
+                            let span = document.createElement("span");
+                            span.classList.add("answer-box");
+                            span.textContent = letter;
+                            answerBox.appendChild(span);
+
+                            // Remove the letter from selection
+                            letterElement.style.visibility = "hidden";
+
+                            // Update selected word
+                            selectedWord += letter;
+                        }
+
+
+                        function resetGame() {
+                            document.getElementById("answer").innerHTML = "";
+                            document.getElementById("result").textContent = "";
+                            selectedWord = "";
+
+                            // Reset letter visibility
+                            document.querySelectorAll(".letter-box").forEach(letter => {
+                                letter.style.visibility = "visible";
+                            });
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>

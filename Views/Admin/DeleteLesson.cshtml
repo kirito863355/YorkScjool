@@ -1,0 +1,19 @@
+﻿@model YorkScjool.Models.Lesson
+
+<h2>Delete Lesson</h2>
+
+<p>Are you sure you want to delete this lesson?</p>
+
+<ul>
+    <li><strong>Name:</strong> @Model.Title</li>
+    <li><strong>Description:</strong> @Model.Description</li>
+</ul>
+
+@using (Html.BeginForm("ConfirmDeleteLesson", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.Id)
+
+    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+    <a href="@Url.Action("ManageLessons", "Admin")" class="btn btn-secondary">Cancel</a>
+}

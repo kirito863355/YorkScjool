@@ -1,0 +1,308 @@
+﻿
+@{
+    ViewBag.Title = "HomeWork3";
+}
+
+<h2>HomeWork3</h2>
+
+
+<button>
+    <a href="#" data-url="@Url.Action("HomeWork", "Student")" class="load-content" style="color: white;">
+        back
+    </a>
+</button>
+
+<div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-title"><span style="color:aqua;">1.2</span> Watch the video</p>
+                <p class="font-weight-500">The total number of sessions within the date range. It is the period time a user is actively engaged with your website, page or app, etc</p>
+                <!-- <video controls style="width: 100%;">
+                  <source src="https://youtu.be/Y4kfe8R1Iqs?list=PLmB2A7HxLenzDSK8ZAAPBbaqNeMHN1PXO" type="video/mp4">
+                </video> -->
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/Y4kfe8R1Iqs?list=PLmB2A7HxLenzDSK8ZAAPBbaqNeMHN1PXO" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <br><br>
+                <p class="font-weight-500">You are more beautiful than you think</p>
+                <hr style="color: gray; height: 2px;">
+                <p class="card-title"><span style="color:aqua;">1.3</span> Write your answers below</p>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li>What do you think about this video?</li>
+                    <li>Would you like to take part in such experiment?</li>
+                    <li>Why or why not</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="title">Hair under a man's nose</h3>
+                <div id="letters">
+                    <span class="letter-box" onclick="selectLetter(this)">K</span>
+                    <span class="letter-box" onclick="selectLetter(this)">i</span>
+                    <span class="letter-box" onclick="selectLetter(this)">r</span>
+                    <span class="letter-box" onclick="selectLetter(this)">i</span>
+                    <span class="letter-box" onclick="selectLetter(this)">t</span>
+                    <span class="letter-box" onclick="selectLetter(this)">o</span>
+                </div>
+                <div id="answer"></div>
+                <button class="btn" onclick="checkWord()">Check</button>
+                <button class="btn" onclick="resetGame()">Reset</button>
+                <p id="result"></p>
+                <p id="attemptsLeft">Attempts left: <span id="attempts">3</span></p>
+            </div>
+        </div>
+
+        <style>
+            .card {
+                max-width: 400px;
+                margin: auto;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                background: #fff;
+                text-align: center;
+            }
+
+            .title {
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+
+            .letter-box {
+                display: inline-block;
+                padding: 12px;
+                margin: 5px;
+                border: 2px solid green;
+                border-radius: 8px;
+                font-size: 18px;
+                font-weight: bold;
+                cursor: pointer;
+                background: white;
+                transition: background 0.3s;
+            }
+
+                .letter-box:hover {
+                    background: #e0ffe0;
+                }
+
+            #answer {
+                display: flex;
+                justify-content: center;
+                min-height: 40px;
+                border: 2px solid gray;
+                padding: 10px;
+                margin-top: 15px;
+                border-radius: 5px;
+                background: #f9f9f9;
+            }
+
+            .btn {
+                margin-top: 15px;
+                padding: 10px 15px;
+                border: none;
+                background: green;
+                color: white;
+                font-size: 16px;
+                cursor: pointer;
+                border-radius: 5px;
+                transition: background 0.3s;
+            }
+
+                .btn:hover {
+                    background: darkgreen;
+                }
+
+            #result {
+                font-weight: bold;
+                margin-top: 10px;
+            }
+        </style>
+
+        <script>
+            let selectedWord = "";
+            const correctWord = "Kirito";
+            let attempts = 3;
+
+            function selectLetter(letterElement) {
+                const letter = letterElement.textContent;
+                const answerBox = document.getElementById("answer");
+
+                let span = document.createElement("span");
+                span.textContent = letter;
+                answerBox.appendChild(span);
+
+                letterElement.style.visibility = "hidden";
+                selectedWord += letter;
+            }
+
+            function checkWord() {
+                if (selectedWord === correctWord) {
+                    document.getElementById("result").textContent = "✅ Correct!";
+                    document.getElementById("result").style.color = "green";
+                } else {
+                    attempts = Math.max(0, attempts - 1);
+                    document.getElementById("attempts").textContent = attempts;
+                    document.getElementById("result").textContent = "❌ Try Again!";
+                    document.getElementById("result").style.color = "red";
+                }
+                if (attempts === 0) {
+                    document.getElementById("result").textContent = "❌ Game Over! The correct word was 'Mustache'.";
+                    document.getElementById("result").style.color = "red";
+                    document.querySelectorAll(".letter-box").forEach(letter => letter.onclick = null);
+                }
+            }
+
+            function resetGame() {
+                document.getElementById("answer").innerHTML = "";
+                document.getElementById("result").textContent = "";
+                document.getElementById("attempts").textContent = "3";
+                selectedWord = "";
+                attempts = 3;
+                document.querySelectorAll(".letter-box").forEach(letter => {
+                    letter.style.visibility = "visible";
+                    letter.onclick = function () { selectLetter(this); };
+                });
+            }
+        </script>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+
+        <div class="card">
+            <div class="card-body">
+                <h2>Guess the Correct Words</h2>
+                <div class="container" id="game"></div>
+                <button onclick="checkAllAnswers()">Check All</button>
+
+                <style>
+                    .container {
+                        background: #e8f5e9;
+                        padding: 20px;
+                        border: 2px solid #4CAF50;
+                        border-radius: 8px;
+                        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+                        display: inline-block;
+                    }
+
+                    .sentence {
+                        margin: 10px 0;
+                    }
+
+                    .input-box {
+                        padding: 5px;
+                        border: 1px solid #ccc;
+                        border-radius: 4px;
+                    }
+
+                    .correct {
+                        background-color: #a3e635;
+                        border-color: #4CAF50;
+                    }
+
+                    .incorrect {
+                        background-color: #f87171;
+                        border-color: #d32f2f;
+                    }
+
+                    button {
+                        margin-top: 10px;
+                        padding: 8px 15px;
+                        border: none;
+                        background-color: #4CAF50;
+                        color: white;
+                        border-radius: 4px;
+                        cursor: pointer;
+                    }
+
+                        button:hover {
+                            background-color: #388E3C;
+                        }
+                </style>
+
+                <script>
+                    const words = [
+                        { sentence: "She is worried about her ___", answer: "appearance" },
+                        { sentence: "My sister is ___ and eats everything she wants!", answer: "slim" },
+                        { sentence: "He is ___, he has a nice body.", answer: "well-built" },
+                        { sentence: "You look ___, are you okay?", answer: "pale" },
+                        { sentence: "I am ___, because I am very active.", answer: "in good shape" },
+                        { sentence: "He is ___ because he has an office job.", answer: "in bad shape" },
+                        { sentence: "She is ___, but she looks good.", answer: "plump" },
+                        { sentence: "Now ___ are in fashion.", answer: "beards" },
+                        { sentence: "I love the summer because all the people are ___ and smiling.", answer: "tanned" },
+                        { sentence: "Salvador Dali had a very unusual ___", answer: "mustache" },
+                        { sentence: "He is ___, he wants to see a doctor about it.", answer: "overweight" },
+                        { sentence: "She is ___ with brown hair.", answer: "dark-skinned" },
+                        { sentence: "She is ___ and has a beautiful smile.", answer: "pretty" }
+                    ];
+
+                    const gameContainer = document.getElementById("game");
+
+                    words.forEach((wordObj, index) => {
+                        const sentenceDiv = document.createElement("div");
+                        sentenceDiv.classList.add("sentence");
+
+                        const sentence = document.createElement("p");
+                        sentence.innerHTML = wordObj.sentence.replace("___", `<input type='text' class='input-box' id='word-${index}'>`);
+
+                        sentenceDiv.appendChild(sentence);
+                        gameContainer.appendChild(sentenceDiv);
+                    });
+
+                    function checkAllAnswers() {
+                        words.forEach((wordObj, index) => {
+                            const inputField = document.getElementById(`word-${index}`);
+                            let attempts = parseInt(inputField.getAttribute("data-attempts") || "0");
+
+                            if (inputField.value.trim().toLowerCase() === wordObj.answer.toLowerCase()) {
+                                inputField.classList.add("correct");
+                                inputField.disabled = true;
+                            } else {
+                                attempts++;
+                                inputField.classList.add("incorrect");
+                                setTimeout(() => inputField.classList.remove("incorrect"), 500);
+
+                                if (attempts >= 3) {
+                                    inputField.value = wordObj.answer;
+                                    inputField.disabled = true;
+                                }
+                                inputField.setAttribute("data-attempts", attempts);
+                            }
+                        });
+                    }
+                </script>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".load-content").on("click", function (e) {
+            e.preventDefault(); // Prevent default link behavior
+
+            var url = $(this).data("url"); // Get the URL from data-url attribute
+            if (url) {
+                $.ajax({
+                    url: url,
+                    type: "GET",
+                    success: function (data) {
+                        $("#dynamic-content").html(data); // Load new content
+                    },
+                    error: function () {
+                        alert("Error loading content.");
+                    }
+                });
+            }
+        });
+    });
+</script>

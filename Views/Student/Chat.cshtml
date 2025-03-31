@@ -1,0 +1,118 @@
+﻿
+@{
+    ViewBag.Title = "Chat";
+}
+
+
+<div class="row">
+    <div class="col-md-7 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+
+                <h2>Two-User Chat</h2>
+                <div class="chat-container">
+                    <div class="chat-box" id="chatBox"></div>
+
+                    <div class="input-container">
+                        <input type="text" id="userInput" placeholder="Type a message...">
+                        <button onclick="sendMessage()">Send</button>
+                    </div>
+                </div>
+
+                <style>
+                    .chat-container {
+                        width: auto;
+                        background: white;
+                        padding: 15px;
+                        border-radius: 10px;
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                    .chat-box {
+                        height: 400px;
+                        overflow-y: auto;
+                        border-radius: 5px;
+                        padding: 10px;
+                        background: #f9f9f9;
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                    .message {
+                        padding: 10px;
+                        border-radius: 15px;
+                        margin: 5px;
+                        max-width: 75%;
+                        word-wrap: break-word;
+                        font-size: 14px;
+                    }
+
+                    .user1 {
+                        background-color: #d4d4d4;
+                        color: rgb(56, 56, 56);
+                        align-self: flex-start;
+                    }
+
+                    .user2 {
+                        background-color: #f3f3f3;
+                        color: rgb(22, 22, 22);
+                        align-self: flex-end;
+                        border: 2px solid rgb(40, 81, 134);
+                    }
+
+                    .input-container {
+                        display: flex;
+                        margin-top: 10px;
+                    }
+
+                    input {
+                        flex: 1;
+                        padding: 10px;
+                        border-radius: 5px;
+                        border: 1px solid #ccc;
+                        margin-right: 5px;
+                    }
+
+                    button {
+                        padding: 10px 15px;
+                        border: none;
+                        background-color: #304275;
+                        color: white;
+                        border-radius: 5px;
+                        cursor: pointer;
+                    }
+
+                        button:hover {
+                            background-color: #28365f;
+                        }
+                </style>
+
+                <script>
+                    let userTurn = 1;
+
+                    function sendMessage() {
+                        const chatBox = document.getElementById("chatBox");
+                        const inputField = document.getElementById("userInput");
+                        const message = inputField.value.trim();
+
+                        if (message === "") return;
+
+                        const messageDiv = document.createElement("div");
+                        messageDiv.classList.add("message", userTurn === 1 ? "user1" : "user2");
+                        messageDiv.innerText = message;
+
+                        chatBox.appendChild(messageDiv);
+                        chatBox.scrollTop = chatBox.scrollHeight; // Auto-scroll to latest message
+                        inputField.value = "";
+
+                        // Switch turn (User 1 → User 2 and vice versa)
+                        userTurn = userTurn === 1 ? 2 : 1;
+                    }
+                </script>
+
+            </div>
+        </div>
+    </div>
+</div>

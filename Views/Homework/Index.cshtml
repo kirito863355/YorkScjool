@@ -1,0 +1,27 @@
+﻿@model List<YorkScjool.Models.Homework>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Homework</h2>
+<a href="@Url.Action("Create", "Homework")">Add New Homework</a>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Due Date</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var homework in Model)
+    {
+        <tr>
+            <td>@homework.Title</td>
+            <td>@homework.DueDate.ToShortDateString()</td> <!-- ✅ Fixed -->
+            <td>
+                <a href="@Url.Action("Edit", "Homework", new { id = homework.Id })">Edit</a>
+                <a href="@Url.Action("Delete", "Homework", new { id = homework.Id })">Delete</a>
+            </td>
+        </tr>
+    }
+</table>

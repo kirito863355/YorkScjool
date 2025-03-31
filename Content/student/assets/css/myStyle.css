@@ -1,0 +1,221 @@
+.card-body2{
+   background-color: rgb(51, 62, 112);
+    background-size: contain no-repeat;
+    padding: 20px;
+    border-radius: 18px;
+    transition: transform .5s ease;
+box-shadow: 2px 4px 16px gray;
+    height: 10rem;
+}
+ 
+.card-body2:hover{
+    transform: scale(1.1);
+}
+
+.contents{
+    background-image: blue;
+    color: rgb(255, 255, 255);
+}
+
+.home-work-a{
+    text-decoration: none;
+}
+
+
+
+.galaxy-container {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+    color: aliceblue;
+}
+.nebula-box {
+    width: auto;
+    background: rgb(59, 52, 126);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.2);
+    gap: 20px;
+    transition: transform 0.3s;
+
+}
+
+.nebulaimg{
+    padding: 10px;
+    height: 12rem;
+    width: 100%;
+    border-radius: 16px;
+}
+.nebula-box:hover {
+    transform: scale(1.05);
+}
+.star-title {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+.cosmic-description {
+    text-align: center;
+    margin-top: 10px;
+    color: #ffffff;
+}
+.blackhole-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.blackhole-button:hover {
+    background-color: #0056b3;
+}
+
+
+.dictionary-container {
+    background-color: #ffffff;
+    box-shadow: 2px 4px 16px rgb(212, 212, 212) ;
+    border-radius: 16px;
+    margin: 0 auto;
+    max-width:1000px ;
+    padding: 20px;
+}
+.word-input-field, .definition-input-field, .add-word-btn {
+    border-radius: 16px;
+    border: 2px solid rgb(68, 87, 138);
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    font-size: 16px;
+}
+.add-word-btn {
+    background: #484296;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.add-word-btn:hover {
+    background: #393477;
+}
+.dictionary-word-list {
+    list-style: none;
+    padding: 0;
+}
+.dictionary-word-item { 
+    margin: 10px 0; 
+    padding: 10px; 
+    box-shadow: 2px 4px 16px rgb(212, 212, 212) ;
+    display: flex; 
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; 
+    border-radius: 15px;
+}
+.dictionary-word-item strong {
+    font-size: 18px;
+}
+.delete-word-btn {
+    box-shadow: 2px 4px 16px rgb(212, 212, 212) ;
+    color: white;
+    border: none;
+    padding: 8px;
+    margin-top: 5px;
+    cursor: pointer;
+    width: 50px;
+    border-radius: 16px;
+}
+.delete-word-btn:hover {
+    border: 2px solid red;
+}
+@media (min-width: 600px) {
+    .dictionary-word-item {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .delete-word-btn {
+        margin-top: 0;
+    }
+}
+
+.main-body {
+    padding: 15px;
+}
+.card {
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0,0,0,.125);
+    border-radius: 16px;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1rem;
+}
+
+.gutters-sm {
+    margin-right: -8px;
+    margin-left: -8px;
+}
+
+.gutters-sm>.col, .gutters-sm>[class*=col-] {
+    padding-right: 8px;
+    padding-left: 8px;
+}
+.mb-3, .my-3 {
+    margin-bottom: 1rem!important;
+}
+
+.bg-gray-300 {
+    background-color: #e2e8f0;
+}
+.h-100 {
+    height: 100%!important;
+}
+.shadow-none {
+    box-shadow: none!important;
+}
+
+.inp-student{
+  text-decoration: none;
+  border: none;
+  width: 50%;
+}
+
+.inp-student2{
+  text-decoration: none;
+  border: none;
+}
+
+.btn-stud{
+  color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #273d68;
+  border-radius: 10px;
+  padding: 5px 20px;
+}
+
+.btn-stud2{
+  color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #273d68;
+  border-radius: 10px;
+  padding: 5px 20px;
+}
+.btn-stud2-pud{
+  padding: 20px;
+}

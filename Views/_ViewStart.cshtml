@@ -1,0 +1,9 @@
+﻿@{
+        string currentPath = Request.Url.AbsolutePath.ToLower();
+
+        // Allow unauthenticated users on the Landing page and Login/Register pages
+        if (!Request.IsAuthenticated && !(currentPath == "/" || currentPath.Contains("landing") || currentPath.Contains("account/login") || currentPath.Contains("account/register")))
+        {
+            Response.Redirect("~/Account/Login");
+        }
+}

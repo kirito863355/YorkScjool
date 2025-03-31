@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "ManageCourses";
+}
+
+<h2>ManageCourses</h2>
+
+@model List<string>
+<h2>Manage Courses</h2>
+<ul>
+    @foreach (var course in Model)
+    {
+        <li>@course</li>
+    }
+</ul>
