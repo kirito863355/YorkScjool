@@ -55,33 +55,25 @@ h1 {
   text-transform: uppercase;
 }
 form {
-  width: min(400px, 100%);
-  margin-top: 20px;
-  margin-bottom: 50px;
+  width: min(300px, 100%);
+  margin-bottom: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 10px;
+  gap: 5px;
 }
 form > div {
   width: 100%;
   display: flex;
   justify-content: center;
 }
-form label {
-  flex-shrink: 0;
-  height: 50px;
-  width: 50px;
-  background-color: var(--accent-color);
-  fill: var(--base-color);
-  color: var(--base-color);
-  border-radius: 10px 0 0 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.5rem;
-  font-weight: 500;
-}
+
+
+   #test{
+       background-color:red !important;
+       height:0;
+   }
+
+
 form input {
   box-sizing: border-box;
   flex-grow: 1;
@@ -316,10 +308,11 @@ form div.incorrect input {
   }
 }
 
+
 .form-sec {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-image: url('@Url.Content("~/Content/landing/images/Монтажная\ область\ 1background.jpg")');
+    background-image: url(./images/Монтажная\ область\ 1background.jpg);
     background-size: cover;
     height: 100vh;
     display: flex;
@@ -330,95 +323,95 @@ form div.incorrect input {
 }
 
 .form-container {
-  background: #fff;
-  border-radius: 30px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 40px 30px;
-  max-width: 500px;
-  width: 100%;
-  margin-left: 0%;
-  border: 3px solid orangered;
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px 30px;
+    max-width:450px;
+    width: 100%;
+    border: 3px solid orangered;
 }
 
-.form-container h2 {
-  margin: 0 0 30px;
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #000;
-}
+    .form-container h2 {
+        margin: 0 0 30px;
+        font-size: 1.5em;
+        font-weight: bold;
+        color: #000;
+    }
 
-.form-container p {
-  margin: 10px 0 20px;
-  font-size: 0.9em;
-  color: #555;
-}
+    .form-container p {
+        margin: 10px 0 20px;
+        font-size: 0.9em;
+        color: #555;
+    }
 
-.form-container label {
-  font-size: 0.9em;
-  color: #555;
-  margin-bottom: 20px;
-  display: block;
-}
+    .form-container label {
+        font-size: 0.9em;
+        color: #555;
+       
+        display: block;
+    }
 
-.form-container input,
-.form-container select,
-.form-container button {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 2px solid orangered;
-  border-radius: 20px;
-  font-size: 1em;
-  box-sizing: border-box;
-}
+    .form-container input,
+    .form-container select,
+    .form-container button {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 2px solid orangered;
+        border-radius: 20px;
+        font-size: 1em;
+        box-sizing: border-box;
+    }
 
-.form-container input:focus,
-.form-container select:focus {
-  border-color: orangered;
-  outline: none;
-}
+        .form-container input:focus,
+        .form-container select:focus {
+            border-color: orangered;
+            outline: none;
+        }
 
-.form-container button {
-  background: orangered;
-  color: #fff;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
+    .form-container button {
+        background: orangered;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
 
-.form-container button:hover {
-  background: rgb(189, 51, 1);
-  border: 2px solid rgb(189, 51, 1);
-}
+        .form-container button:hover {
+            background: rgb(189, 51, 1);
+            border: 2px solid rgb(189, 51, 1);
+        }
+
 .image-all {
-  width: 700px;
-  height: 500px;
+    width: 700px;
+    height: 500px;
 }
 
 .image-container {
-  position: absolute;
-  top: 10%;
-  right: 5%;
-  z-index: 1;
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    z-index: 1;
 }
 
-.image-container img {
-  border-radius: 50%;
-}
+    .image-container img {
+        border-radius: 50%;
+    }
 
 .tel-input {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.tel-input select {
-  width: 30%;
-}
+    .tel-input select {
+        width: 30%;
+    }
 
-.tel-input input {
-  width: 70%;
-}
+    .tel-input input {
+        width: 70%;
+    }
 
 @media (max-width: 320px) {
     .form-sec {
@@ -601,7 +594,7 @@ form div.incorrect input {
     .form-sec {
         margin: 0;
         font-family: Arial, sans-serif;
-        background-image: url('@Url.Content("~/Content/landing/images/Монтажная\ область\ 1background.jpg")');
+        background-image: url('/Content/landing/images/Монтажная область 1background.jpg');
         background-size: cover;
         height: 200vh;
         display: flex;
@@ -619,7 +612,7 @@ form div.incorrect input {
     padding: 35px 25px;
     max-width: 300px;
     width: 100%;
-    margin-left: 10%;
+    margin-left: auto;
     border: 3px solid orangered;
   }
 
@@ -714,7 +707,7 @@ form div.incorrect input {
     .form-sec {
         margin: 0;
         font-family: Arial, sans-serif;
-        background-image: url('@Url.Content("~/Content/landing/images/Монтажная\ область\ 1background.jpg")');
+        background-image: url('@Url.Content("~/Content/landing/images\Монтажная область 1background.jpg")') !important;
         background-size: cover;
         height: 140vh;
         display: flex;
@@ -735,12 +728,12 @@ form div.incorrect input {
     border: 2px solid orangered;
   }
 
-  .form-container label {
-    font-size: 0.9em;
-    color: #555;
-    margin-bottom: 2px;
-    display: block;
-  }
+    .form-container label {
+        font-size: 0.9em;
+        color: #555;
+        margin-bottom: 2px;
+        display: block;
+    }
 
   .form-container input,
   .form-container select,
@@ -815,7 +808,7 @@ form div.incorrect input {
   }
 }
 
-@media (min-width: 1680px) {
+@media (max-width: 1680px) {
     .form-sec {
         margin: 0;
         font-family: Arial, sans-serif;
@@ -828,6 +821,13 @@ form div.incorrect input {
         width: 100%;
         gap: 10%;
     }
+
+    .imagees {
+        border: 2px solid black;
+        text-align: center;
+        align-items: center;
+    }
+
 
   .form-container {
     background: #fff;
@@ -919,6 +919,7 @@ form div.incorrect input {
   .tel-input input {
     width: 70%;
   }
+
 }
 
 .wellcum .qiqi,
@@ -1350,4 +1351,21 @@ footer {
     background-size: cover; /* Фон подгоняется под размер экрана */
     min-height: 20vh; /* Уменьшаем высоту секции для маленьких экранов */
   }
+}
+
+
+.alert-success {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #d4edda;
+    background-color: #d4edda;
+    color: #155724;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.imagees {
+    border :2px solid black;
+    text-align: center;
+    align-items: center;
 }

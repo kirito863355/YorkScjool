@@ -168,6 +168,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HomeworkController.cs" />
+    <Compile Include="Controllers\LandingController.cs" />
     <Compile Include="Controllers\LessonController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
@@ -177,6 +178,10 @@
     <Compile Include="Migrations\202503281945205_first5.cs" />
     <Compile Include="Migrations\202503281945205_first5.Designer.cs">
       <DependentUpon>202503281945205_first5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202504071946031_contactform.cs" />
+    <Compile Include="Migrations\202504071946031_contactform.Designer.cs">
+      <DependentUpon>202504071946031_contactform.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -188,6 +193,7 @@
     <Compile Include="Models\Lesson.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\TrialLessonRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -310,15 +316,22 @@
     <Content Include="Content\landing\forms\Readme.txt" />
     <Content Include="Content\landing\images\background.jpg" />
     <Content Include="Content\landing\images\gmail.svg" />
+    <Content Include="Content\landing\images\interest-3.png" />
+    <Content Include="Content\landing\images\interest-33.png" />
+    <Content Include="Content\landing\images\interest-333.png" />
+    <Content Include="Content\landing\images\sharing-1.png" />
+    <Content Include="Content\landing\images\sharing-11.png" />
+    <Content Include="Content\landing\images\sharing-111.png" />
+    <Content Include="Content\landing\images\special-2.png" />
+    <Content Include="Content\landing\images\special-22.png" />
+    <Content Include="Content\landing\images\special-222.png" />
     <Content Include="Content\landing\images\telegram.svg" />
     <Content Include="Content\landing\images\Vector 3.png" />
     <Content Include="Content\landing\images\viber.svg" />
     <Content Include="Content\landing\images\whatsapp.svg" />
+    <Content Include="Content\landing\images\Безымянный-1.png" />
     <Content Include="Content\landing\images\Безымянный-2.png" />
     <Content Include="Content\landing\images\Монтажная область 1background.jpg" />
-    <Content Include="Content\landing\images\Монтажная область 1cuntry.png" />
-    <Content Include="Content\landing\images\Монтажная область 1dictionary.png" />
-    <Content Include="Content\landing\images\Монтажная область 1English.png" />
     <Content Include="Content\landing\image\10337609.png" />
     <Content Include="Content\landing\image\1377975.png" />
     <Content Include="Content\landing\image\1588574_1.jpg" />
@@ -334,6 +347,7 @@
     <Content Include="Content\landing\image\learning.png" />
     <Content Include="Content\landing\image\mental-health.png" />
     <Content Include="Content\landing\image\reading.png" />
+    <Content Include="Content\landing\image\shutterstock_1537133861.jpg" />
     <Content Include="Content\landing\image\student.png" />
     <Content Include="Content\landing\image\team-spirit.png" />
     <Content Include="Content\landing\image\Untitled-2.png" />
@@ -803,6 +817,7 @@
     <Folder Include="Views\Auth\" />
     <Folder Include="Views\Chat\" />
     <Folder Include="Views\EmailSettings\" />
+    <Folder Include="Views\Landing\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -834,6 +849,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202503281945205_first5.resx">
       <DependentUpon>202503281945205_first5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202504071946031_contactform.resx">
+      <DependentUpon>202504071946031_contactform.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
