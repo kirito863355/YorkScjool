@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Чат с пользователем";
+}
+
+<h2>Чат с пользователем</h2>
+
+<div id="adminChatBox">
+    <!-- Здесь будут сообщения -->
+</div>
+
+<div id="adminInputArea">
+    <input type="text" id="adminMessageInput" placeholder="Введите сообщение..." />
+    <button id="adminSendButton">Отправить</button>
+</div>
+
+@section Scripts {
+    <script src="~/Scripts/jquery.signalR-2.4.1.min.js"></script>
+    <script src="/signalr/hubs"></script>
+
+    <script>
+        const connection = $.hubConnection();
+        const chat = connection.createHubProxy('chatHub');
+
+        chat.on('receiveMessage', function (senderId, message) {
+            $('#adminChatBox').append('<div>' + message + '</div>');
+        });
+
+        connection.start().done(function () {
+            $('#adminSendButton').click(function () {
+                var text = $('#adminMessageInput').val();
+                if (text.trim() !== '') {
+                    chat.invoke('send', '@ViewBag.CurrentUserId', '@ViewBag.WithUserId', text);
+                    $('#adminMessageInput').val('');
+                }
+            });
+        });
+    </script>
+}

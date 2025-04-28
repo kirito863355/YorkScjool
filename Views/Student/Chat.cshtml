@@ -1,118 +1,276 @@
-﻿
+﻿@*@model List<YorkScjool.Models.Message>*@
 @{
-    ViewBag.Title = "Chat";
+    ViewBag.Title = "Чат";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<h2 class="chat-title">Чат</h2>
 
-<div class="row">
-    <div class="col-md-7 grid-margin stretch-card">
-        <div class="card">
-            <div class="card-body">
+<div id="chatContainer">
+    <div id="chatMessages"></div>
 
-                <h2>Two-User Chat</h2>
-                <div class="chat-container">
-                    <div class="chat-box" id="chatBox"></div>
-
-                    <div class="input-container">
-                        <input type="text" id="userInput" placeholder="Type a message...">
-                        <button onclick="sendMessage()">Send</button>
-                    </div>
-                </div>
-
-                <style>
-                    .chat-container {
-                        width: auto;
-                        background: white;
-                        padding: 15px;
-                        border-radius: 10px;
-                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                        display: flex;
-                        flex-direction: column;
-                    }
-
-                    .chat-box {
-                        height: 400px;
-                        overflow-y: auto;
-                        border-radius: 5px;
-                        padding: 10px;
-                        background: #f9f9f9;
-                        display: flex;
-                        flex-direction: column;
-                    }
-
-                    .message {
-                        padding: 10px;
-                        border-radius: 15px;
-                        margin: 5px;
-                        max-width: 75%;
-                        word-wrap: break-word;
-                        font-size: 14px;
-                    }
-
-                    .user1 {
-                        background-color: #d4d4d4;
-                        color: rgb(56, 56, 56);
-                        align-self: flex-start;
-                    }
-
-                    .user2 {
-                        background-color: #f3f3f3;
-                        color: rgb(22, 22, 22);
-                        align-self: flex-end;
-                        border: 2px solid rgb(40, 81, 134);
-                    }
-
-                    .input-container {
-                        display: flex;
-                        margin-top: 10px;
-                    }
-
-                    input {
-                        flex: 1;
-                        padding: 10px;
-                        border-radius: 5px;
-                        border: 1px solid #ccc;
-                        margin-right: 5px;
-                    }
-
-                    button {
-                        padding: 10px 15px;
-                        border: none;
-                        background-color: #304275;
-                        color: white;
-                        border-radius: 5px;
-                        cursor: pointer;
-                    }
-
-                        button:hover {
-                            background-color: #28365f;
-                        }
-                </style>
-
-                <script>
-                    let userTurn = 1;
-
-                    function sendMessage() {
-                        const chatBox = document.getElementById("chatBox");
-                        const inputField = document.getElementById("userInput");
-                        const message = inputField.value.trim();
-
-                        if (message === "") return;
-
-                        const messageDiv = document.createElement("div");
-                        messageDiv.classList.add("message", userTurn === 1 ? "user1" : "user2");
-                        messageDiv.innerText = message;
-
-                        chatBox.appendChild(messageDiv);
-                        chatBox.scrollTop = chatBox.scrollHeight; // Auto-scroll to latest message
-                        inputField.value = "";
-
-                        // Switch turn (User 1 → User 2 and vice versa)
-                        userTurn = userTurn === 1 ? 2 : 1;
-                    }
-                </script>
-
-            </div>
-        </div>
+    <div id="chatInput">
+        <input type="text" id="messageInput" placeholder="Введите сообщение..." autocomplete="off" />
+        <button id="sendButton">➤</button>
     </div>
 </div>
+
+@section Scripts {
+    <script src="~/Scripts/jquery.signalR-2.4.1.min.js"></script>
+    <script src="/signalr/hubs"></script>
+
+    <script>
+        $(function () {
+            const connection = $.hubConnection();
+            const chat = connection.createHubProxy('chatHub');
+
+            chat.on('receiveMessage', function (senderId, message) {
+                const currentUserId = '@ViewBag.CurrentUserId';
+                const isSent = senderId === currentUserId;
+                const messageClass = isSent ? 'sent' : 'received';
+
+                $('#chatMessages').append(
+                    `<div class="message ${messageClass}">
+                        <div class="message-text">${message}</div>
+                    </div>`
+                );
+                $('#chatMessages').scrollTop($('#chatMessages')[0].scrollHeight);
+            });
+
+            connection.start().done(function () {
+                $('#sendButton').click(function () {
+                    const message = $('#messageInput').val();
+                    const withUserId = '@ViewBag.WithUserId';
+
+                    if (message.trim() !== '') {
+                        chat.invoke('send', '@ViewBag.CurrentUserId', withUserId, message);
+                        $('#messageInput').val('');
+                    }
+                });
+
+                $('#messageInput').keypress(function (e) {
+                    if (e.which === 13) { // Enter key
+                        $('#sendButton').click();
+                    }
+                });
+            });
+
+            // Подгружаем старые сообщения при загрузке страницы
+            loadMessages();
+
+            function loadMessages() {
+                $.get('@Url.Action("GetMessages", "Chat")', { withUserId: '@ViewBag.WithUserId' }, function (data) {
+                    data.forEach(function (msg) {
+                        const isSent = msg.SenderId === '@ViewBag.CurrentUserId';
+                        const messageClass = isSent ? 'sent' : 'received';
+
+                        $('#chatMessages').append(
+                            `<div class="message ${messageClass}">
+                                <div class="message-text">${msg.Text}</div>
+                            </div>`
+                        );
+                    });
+                    $('#chatMessages').scrollTop($('#chatMessages')[0].scrollHeight);
+                });
+            }
+        });
+    </script>
+}
+
+<style>
+    body {
+        background-color: #1c1c1e;
+        color: white;
+    }
+
+    #chatContainer {
+        display: flex;
+        flex-direction: column;
+        max-width: 600px;
+        margin: 20px auto;
+        height: 80vh;
+        background: #2c2c2e;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 0 10px #000;
+    }
+
+    #chatMessages {
+        flex-grow: 1;
+        overflow-y: auto;
+        padding: 15px;
+    }
+
+    .message {
+        margin-bottom: 15px;
+        max-width: 80%;
+        word-wrap: break-word;
+    }
+
+    .sent {
+        align-self: flex-end;
+        background: #248bf5;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 15px 15px 0 15px;
+    }
+
+    .received {
+        align-self: flex-start;
+        background: #3a3a3c;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 15px 15px 15px 0;
+    }
+
+    #chatInput {
+        display: flex;
+        padding: 10px;
+        background: #1c1c1e;
+    }
+
+    #messageInput {
+        flex-grow: 1;
+        padding: 10px;
+        border: none;
+        border-radius: 10px;
+        background: #2c2c2e;
+        color: white;
+    }
+
+    #sendButton {
+        background: #248bf5;
+        border: none;
+        padding: 0 20px;
+        margin-left: 10px;
+        border-radius: 10px;
+        color: white;
+        cursor: pointer;
+        font-size: 18px;
+    }
+
+        #sendButton:hover {
+            background: #1d6fd6;
+        }
+
+    .chat-title {
+        text-align: center;
+        margin: 10px 0;
+        font-size: 24px;
+    }
+</style>
+
+
+@*<div class="row">
+        <div class="col-md-7 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+
+                    <h2>Two-User Chat</h2>
+                    <div class="chat-container">
+                        <div class="chat-box" id="chatBox"></div>
+
+                        <div class="input-container">
+                            <input type="text" id="userInput" placeholder="Type a message...">
+                            <button onclick="sendMessage()">Send</button>
+                        </div>
+                    </div>
+
+                    <style>
+                        .chat-container {
+                            width: auto;
+                            background: white;
+                            padding: 15px;
+                            border-radius: 10px;
+                            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                            display: flex;
+                            flex-direction: column;
+                        }
+
+                        .chat-box {
+                            height: 400px;
+                            overflow-y: auto;
+                            border-radius: 5px;
+                            padding: 10px;
+                            background: #f9f9f9;
+                            display: flex;
+                            flex-direction: column;
+                        }
+
+                        .message {
+                            padding: 10px;
+                            border-radius: 15px;
+                            margin: 5px;
+                            max-width: 75%;
+                            word-wrap: break-word;
+                            font-size: 14px;
+                        }
+
+                        .user1 {
+                            background-color: #d4d4d4;
+                            color: rgb(56, 56, 56);
+                            align-self: flex-start;
+                        }
+
+                        .user2 {
+                            background-color: #f3f3f3;
+                            color: rgb(22, 22, 22);
+                            align-self: flex-end;
+                            border: 2px solid rgb(40, 81, 134);
+                        }
+
+                        .input-container {
+                            display: flex;
+                            margin-top: 10px;
+                        }
+
+                        input {
+                            flex: 1;
+                            padding: 10px;
+                            border-radius: 5px;
+                            border: 1px solid #ccc;
+                            margin-right: 5px;
+                        }
+
+                        button {
+                            padding: 10px 15px;
+                            border: none;
+                            background-color: #304275;
+                            color: white;
+                            border-radius: 5px;
+                            cursor: pointer;
+                        }
+
+                            button:hover {
+                                background-color: #28365f;
+                            }
+                    </style>
+
+                    <script>
+                        let userTurn = 1;
+
+                        function sendMessage() {
+                            const chatBox = document.getElementById("chatBox");
+                            const inputField = document.getElementById("userInput");
+                            const message = inputField.value.trim();
+
+                            if (message === "") return;
+
+                            const messageDiv = document.createElement("div");
+                            messageDiv.classList.add("message", userTurn === 1 ? "user1" : "user2");
+                            messageDiv.innerText = message;
+
+                            chatBox.appendChild(messageDiv);
+                            chatBox.scrollTop = chatBox.scrollHeight; // Auto-scroll to latest message
+                            inputField.value = "";
+
+                            // Switch turn (User 1 → User 2 and vice versa)
+                            userTurn = userTurn === 1 ? 2 : 1;
+                        }
+                    </script>
+
+                </div>
+            </div>
+        </div>
+    </div>*@
+

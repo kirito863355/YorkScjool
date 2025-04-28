@@ -7,6 +7,7 @@ namespace YorkScjool.Models
     {
         DbSet<Lesson> Lessons { get; set; }
         DbSet<Homework> Homeworks { get; set; }
+        DbSet<Message> Messages { get; set; }
     }
 
 }

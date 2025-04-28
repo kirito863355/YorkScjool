@@ -18,7 +18,7 @@ namespace YorkScjool.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public async Task<ActionResult> Index(TrialLessonRequest model)
         {
             if (ModelState.IsValid)

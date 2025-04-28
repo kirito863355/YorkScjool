@@ -65,6 +65,12 @@
     <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.AspNet.Identity.Owin.2.2.4\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.4.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.SignalR.Core.2.4.3\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.4.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.SignalR.SystemWeb.2.4.3\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -164,8 +170,10 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="ChatHub.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ChatController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HomeworkController.cs" />
     <Compile Include="Controllers\LandingController.cs" />
@@ -175,6 +183,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Hubs\ChatHub.cs" />
     <Compile Include="Migrations\202503281945205_first5.cs" />
     <Compile Include="Migrations\202503281945205_first5.Designer.cs">
       <DependentUpon>202503281945205_first5.cs</DependentUpon>
@@ -183,8 +192,17 @@
     <Compile Include="Migrations\202504071946031_contactform.Designer.cs">
       <DependentUpon>202504071946031_contactform.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202504241907308_AddMessages.cs" />
+    <Compile Include="Migrations\202504241907308_AddMessages.Designer.cs">
+      <DependentUpon>202504241907308_AddMessages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202504281747312_FixMessageForeignKeys.cs" />
+    <Compile Include="Migrations\202504281747312_FixMessageForeignKeys.Designer.cs">
+      <DependentUpon>202504281747312_FixMessageForeignKeys.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ChatUser.cs" />
     <Compile Include="Models\DeleteStudentViewModel.cs" />
     <Compile Include="Models\EditStudentViewModel.cs" />
     <Compile Include="Models\Homework.cs" />
@@ -192,6 +210,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Lesson.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Message.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\TrialLessonRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -744,6 +763,8 @@
     <Content Include="Scripts\jquery-3.7.0.slim.js" />
     <Content Include="Scripts\jquery-3.7.0.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.signalR-2.4.3.js" />
+    <Content Include="Scripts\jquery.signalR-2.4.3.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
@@ -811,6 +832,7 @@
     <Content Include="Views\Student\HomeWork3.cshtml" />
     <Content Include="Views\Student\Settings.cshtml" />
     <Content Include="Views\Student\Account.cshtml" />
+    <Content Include="Views\Admin\Chat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -852,6 +874,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202504071946031_contactform.resx">
       <DependentUpon>202504071946031_contactform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202504241907308_AddMessages.resx">
+      <DependentUpon>202504241907308_AddMessages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202504281747312_FixMessageForeignKeys.resx">
+      <DependentUpon>202504281747312_FixMessageForeignKeys.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
